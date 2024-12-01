@@ -1,0 +1,31 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(63, 49, 49);
+    color: bisque;
+    padding: 15px;
+    width: 100%;
+    
+}
+.navbar ul{
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+.cartwidget{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    
+}
+.banner{
+    display: flex;
+    border-radius: 5px;
+    width: 100px;
+    height: 60px;
+}
+
+
+
