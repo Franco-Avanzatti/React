@@ -38,6 +38,7 @@ const itemDetailContainer = ({ LoadingComponent }) => {
             product && <ItemDetail product={product} /> 
           )}
         </div>
+        
       );
 }
 
