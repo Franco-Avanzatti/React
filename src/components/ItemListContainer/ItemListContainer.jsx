@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import { getProducts } from "../../data/data.js";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import db from "../../db/db.js";
 import ItemList from "./ItemList.jsx";
 import { useParams } from "react-router-dom";
 import "./itemlistcontainer.css";
+
 
 const ItemListContainer = ({ greeting, LoadingComponent }) => {
   const [products, setProducts] = useState([]);
@@ -10,31 +12,42 @@ const ItemListContainer = ({ greeting, LoadingComponent }) => {
 
   const { idCategory } = useParams();
 
-  useEffect(() => {
-    setLoading(true);
+  const collectionName = collection(db, "products")
 
-    getProducts()
-      .then((data) => {
-        if (idCategory) {
-          const filterProducts = data.filter(
-            (product) => product.category === idCategory
-          );
-          setProducts(filterProducts);
-        } else {
-          setProducts(data);
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      })
-      .finally(() => {
-        setLoading(false);
+  //Obtener los productos,sea por categoría o todos los productos//
+  
+  const getProducts = async(category = null) => {
+    try {
+      setLoading(true);
+      let dataDb;
+  
+      if (category) {
+        const q = query(collectionName, where("category", "==", category));
+        dataDb = await getDocs(q);
+      } else {
+        dataDb = await getDocs(collectionName);
+      }
+  
+      const data = dataDb.docs.map((productDb) => {
+        return { id: productDb.id, ...productDb.data() };
       });
+  
+      setProducts(data);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  }
+  
+  useEffect(() => {
+    getProducts(idCategory);
   }, [idCategory]);
+  
 
   return (
-    <div className="itemlistcontainer">
-      <h1>{greeting}</h1>
+    <div className="itemlistcontainer" >
+      <h1 className="hendrix">{greeting}</h1>
       
          {loading ? <LoadingComponent /> : <ItemList products={products} />}
       

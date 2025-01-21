@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=New+Rocker&family=PT+Sans+Caption:wght@400;700&family=Rock+Salt&display=swap');
+
 .item-detail{
     display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     min-height: 90vh;
     padding: 100px 0;
@@ -23,11 +27,33 @@
     padding: 0 10px;
   }
   .title-detail{
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: italic;
     padding: 10px 0;
     font-size: 3rem;
   }
   .text-detail{
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: italic;
     padding: 10px 0;
     font-size: 1rem;
-    color: rgb(17, 17, 17);
+    color: white;
   }
+ .detail{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+ }
+ .h2{
+ text-align: center;
+ margin: 0;
+ 
+ }
+ .buy:hover{
+  color: #a39b9b;
+ }
