@@ -31,8 +31,7 @@ Tener instalado el administrador de Base de Datos Postgres SQL (a futuro)
 1 - Clonar repositorio
 
 Desde la consola de comandos, ubicarse en la carpeta en la cual se clonara el repositrio y luego ejecutar el comando git clone mas la url.
-git clone https://github.com/jonathansansok/ecommerce-react-jonathan-sanso.git
-cd MI-APP
+git clone https://github.com/Franco-Avanzatti/React
 npm install
 
 npm start
