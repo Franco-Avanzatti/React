@@ -3,7 +3,7 @@ import ItemDetail from "./ItemDetail"
 import { doc,getDoc } from "firebase/firestore"
 import db from "../../db/db.js"
 import { useParams } from "react-router-dom"
-import "./itemdetail.css";
+import "./itemDetail.css";
 
 
 const itemDetailContainer = ({ LoadingComponent }) => {

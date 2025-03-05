@@ -1,19 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=New+Rocker&family=PT+Sans+Caption:wght@400;700&family=Rock+Salt&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=New+Rocker&family=PT+Sans+Caption:wght@400;700&family=Rock+Salt&display=swap');
 
-.itemlistcontainer{
+.itemListContainer{
     display: flex;
     flex-direction: column;
     padding: 50px;
     
     
 }
-.itemlistcontainer .itemlist{
+.itemListContainer .itemList{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
-.itemlistcontainer .item{
+.itemListContainer .item{
     display: flex;
     flex-direction: column;
     align-items: center;
