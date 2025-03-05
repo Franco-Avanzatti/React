@@ -20,8 +20,8 @@ function App() {
       <ToastContainer  theme="dark" position="bottom-right" />
 
       <Routes>
-        <Route path="/" element={ <ItemListContainer greeting={"Hendrix Music"} LoadingComponent={Loading} /> } />
-        <Route path="/category/:idCategory" element={ <ItemListContainer greeting={"Hendrix Music"}LoadingComponent={Loading} />} />
+        <Route path="/" element={ <ItemListContainer greeting={"Panama Music"} LoadingComponent={Loading} /> } />
+        <Route path="/category/:idCategory" element={ <ItemListContainer greeting={"Panama Music"}LoadingComponent={Loading} />} />
         <Route path="/detail/:idProduct" element={ <ItemDetailContainer   LoadingComponent={Loading} />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
