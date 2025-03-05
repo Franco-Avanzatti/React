@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import "./ItemListContainer.css"
+import "./itemListContainer.css"
 
 const Item = ({ product }) => {
   return (
