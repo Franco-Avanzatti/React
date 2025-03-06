@@ -1,29 +1,33 @@
+import { useState } from "react";
 import CartWidget from "./CartWidget";
-import bannerImage from "../../assets/logo.webp";
+import bannerImage from "../../assets/hendrix.jpg";
 import { NavLink, Link } from "react-router-dom";
-import "./navbar.css"
-
+import "./navbar.css";
 
 const NavBar = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
 
-    return(
-        <nav className="navbar" >
-
+    return (
+        <nav className="navbar">
+            <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+                ☰
+            </button>
+            
             <Link to="/">
-              <img className="banner" src={bannerImage} alt="logo" />
+              <img className="banner" src={bannerImage} alt="Hendrix" />
             </Link>
             
             
-            <ul className="categories">
-                <NavLink to="/category/guitarras-electricas" className={ ( { isActive } ) => isActive ? "category-active" : "category" }>Guitarras Eléctricas </NavLink>
-                <NavLink to="/category/bajo-electrico" className={ ( { isActive } ) => isActive ? "category-active" : "category" }>Bajo Eléctrico</NavLink>
-                <NavLink to="/category/bateria-percusion" className={ ( { isActive } ) => isActive ? "category-active" : "category" }>Batería & Percusión</NavLink>
-                <NavLink to="/category/audio-sonido" className={ ( { isActive } ) => isActive ? "category-active" : "category" }>Audio Profesional & Sonído en Vivo</NavLink>
+            <ul className={`categories ${menuOpen ? "open" : ""}`}>
+                <NavLink to="/category/guitarras-electricas" className={({ isActive }) => isActive ? "category-active" : "category"}>Guitarras Eléctricas</NavLink>
+                <NavLink to="/category/bajo-electrico" className={({ isActive }) => isActive ? "category-active" : "category"}>Bajo Eléctrico</NavLink>
+                <NavLink to="/category/bateria-percusion" className={({ isActive }) => isActive ? "category-active" : "category"}>Batería & Percusión</NavLink>
+                <NavLink to="/category/audio-sonido" className={({ isActive }) => isActive ? "category-active" : "category"}>Audio Profesional & Sonido en Vivo</NavLink>
             </ul>
-
-            <CartWidget/>
+            
+            <CartWidget />
         </nav>
-    )
-}
+    );
+};
 
-export default NavBar
+export default NavBar;

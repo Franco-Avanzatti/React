@@ -1,37 +1,72 @@
 .navbar{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background-color: rgb(163, 155, 155);
-    padding: 10px;
+    justify-content: space-around;
+    background-color: #4a148c;
+    padding: 8px;
     width: 100%;
 }
+
+.navbar .menu-toggle{
+    display: none;
+    padding: 8px;
+}
+
 .navbar .categories{
     display: flex;
     gap:  100px;
-    
+    font-weight: bold;
 }
 .categories .category{
-    color: beige;
     text-decoration: none;
 }
 .category-active{
-    color: #351d33;
+    color: #ce93d8;
     text-decoration: underline;
 }
 .cartwidget{
-    display: flex;
-    align-items: center;
-    gap: 5px;
     color: bisque; 
 }
 .banner{
     display: flex;
-    border-radius: 5px;
-    width: 100px;
-    height: 70px; 
+    width: 80px;
+    height: 60px;
 }
 
 
+@media (max-width: 768px) {
+    .nabar {
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .navbar .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 2rem;
+        background-color: #4a148c;
+    }
+    
+    .navbar .categories {
+        display: none;
+        padding:16px;
+        align-items: start;
+        padding-top: 64px;
+        flex-direction: column;
+        position: absolute;
+        gap: 16px;
+        top: 65px;
+        height: 100vh;
+        left: 0;
+        background: #4a148c;
+        width: 100%;
+        text-align: center;
+        z-index: 10;
+    }
+    
+    .navbar .categories.open {
+        display: flex;
+    }
+}
 
 
