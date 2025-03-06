@@ -1,6 +1,6 @@
 import { useState } from "react";
 import CartWidget from "./CartWidget";
-import bannerImage from "../../assets/hendrix.jpg";
+import bannerImage from "../../assets/panama.webp";
 import { NavLink, Link } from "react-router-dom";
 import "./navbar.css";
 
@@ -14,7 +14,7 @@ const NavBar = () => {
             </button>
             
             <Link to="/">
-              <img className="banner" src={bannerImage} alt="Hendrix" />
+              <img className="banner" src={bannerImage} alt="Banner" />
             </Link>
             
             
