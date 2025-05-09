@@ -1,25 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=New+Rocker&family=PT+Sans+Caption:wght@400;700&family=Rock+Salt&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=New+Rocker&family=PT+Sans+Caption:wght@400;700&family=Rock+Salt&display=swap');
 
-.itemListContainer{
+.itemListContainer {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 50px;
-    
-    
+    gap: 2rem;
+    flex: 1;
+    min-height: 92vh;
+    box-sizing: border-box;
 }
-.itemListContainer .itemList{
+
+.itemListContainer .itemList {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
-.itemListContainer .item{
+
+.itemListContainer .item {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
     overflow: hidden;
-    width: 300px;
+    width: 200px;
     margin: 2rem;
     padding: 1rem;
     border: 2px solid gray;
@@ -30,43 +36,44 @@
 }
 
 
-.hendrix{
+.hendrix {
     font-family: "PT Sans Caption", serif;
     font-weight: 400;
     font-style: normal;
 }
-.text-item{
+
+.text-item {
     font-family: "Montserrat", serif;
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: italic;
 }
 
-  
+
 .item:hover {
     transform: scale(1.05);
 }
-  
+
 .img-item {
     width: 100%;
     height: auto;
 }
-  
+
 .text-item {
     padding: 10px;
     text-align: center;
     font-size: 16px;
     font-weight: bold;
 }
-  
+
 .txt-detail {
     display: none;
 }
-  
+
 .item:hover .curtain {
     transform: translateY(0);
 }
-  
+
 .curtain {
     position: absolute;
     top: 0;
@@ -83,17 +90,15 @@
     transform: translateY(100%);
     text-align: center;
 }
-  
+
 .curtain p {
     margin: 0;
 }
-  
+
 .item:hover .txt-detail {
     display: block;
     color: white;
     text-decoration: underline;
     font-size: 14px;
 }
-      
-
 

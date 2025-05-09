@@ -12,20 +12,25 @@ const NavBar = () => {
             <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
                 ☰
             </button>
-            
-            <Link to="/">
-              <img className="banner" src={bannerImage} alt="Banner" />
+
+            <Link to="/" className="banner-container">
+                <img className="banner" src={bannerImage} alt="Banner" />
             </Link>
-            
-            
+
+
             <ul className={`categories ${menuOpen ? "open" : ""}`}>
-                <NavLink to="/category/guitarras-electricas" className={({ isActive }) => isActive ? "category-active" : "category"}>Guitarras Eléctricas</NavLink>
-                <NavLink to="/category/bajo-electrico" className={({ isActive }) => isActive ? "category-active" : "category"}>Bajo Eléctrico</NavLink>
-                <NavLink to="/category/bateria-percusion" className={({ isActive }) => isActive ? "category-active" : "category"}>Batería & Percusión</NavLink>
-                <NavLink to="/category/audio-sonido" className={({ isActive }) => isActive ? "category-active" : "category"}>Audio Profesional & Sonido en Vivo</NavLink>
+                <NavLink to="/category/guitarras-electricas" className={({ isActive }) => isActive ? "category-active" : "category"} onClick={() => setMenuOpen(false)}>Guitarras Eléctricas</NavLink>
+
+                <NavLink to="/category/bajo-electrico" className={({ isActive }) => isActive ? "category-active" : "category"} onClick={() => setMenuOpen(false)}>Bajo Eléctrico</NavLink>
+
+                <NavLink to="/category/bateria-percusion" className={({ isActive }) => isActive ? "category-active" : "category"} onClick={() => setMenuOpen(false)}>Batería & Percusión</NavLink>
+
+                <NavLink to="/category/audio-sonido" className={({ isActive }) => isActive ? "category-active" : "category"} onClick={() => setMenuOpen(false)}>Audio Profesional & Sonido en Vivo</NavLink>
             </ul>
-            
-            <CartWidget />
+            <div className="cart-widget">
+                <CartWidget />
+            </div>
+
         </nav>
     );
 };

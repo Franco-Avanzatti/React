@@ -47,7 +47,7 @@ const ItemListContainer = ({ greeting, LoadingComponent }) => {
 
   return (
     <div className="itemListContainer" >
-      <h1 className="hendrix">{greeting}</h1>
+      <h1 className="hendrix" >{greeting}</h1>
       
          {loading ? <LoadingComponent /> : <ItemList products={products} />}
       
