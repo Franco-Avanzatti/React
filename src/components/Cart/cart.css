@@ -1,108 +1,116 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=New+Rocker&family=PT+Sans+Caption:wght@400;700&family=Rock+Salt&display=swap');
 
-h3{
-    font-family: "Montserrat", serif;
-    font-optical-sizing: a;
-    font-weight: 700;
-    font-style: italic;  
-}
-ul {
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 20px; 
-    padding: 0;
-    list-style: none; 
-    justify-content: flex-start; 
-  }
-  
-  
-  .item-cart {
-    font-family: "Montserrat", serif;
-    font-optical-sizing: a;
-    font-weight: 700;
-    font-style: italic;  
+.container-cart {
+  display: flex;
+  flex-direction: column;
+  min-height: 92vh;
 
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    width: 200px; 
-    padding: 10px;
-    border: 1px solid #ccc; 
-    border-radius: 5px; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-    text-align: center; 
-    justify-content: space-between;
-    height: 300px; 
-  }
-  
-  .item-cart img {
-    width: 100%; 
-    max-width: 100px;
-    height: auto; 
-  }
-  
-  .item-cart p {
-    margin: 5px 0; 
-    font-size: 14px; 
-  }
-  
-  
-  .item-cart .button-container {
-    display: flex;
-    justify-content: center; 
-    margin-top: auto; 
-  }
-  
-  .item-cart button {
-    background-color: #341e34;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  
-  .item-cart button:hover {
-    background-color: #a39b9b; 
-  }
-  
- 
-  h3 {
-    margin-top: 20px;
-    font-size: 18px;
-  }
-  
-  .button-to-cart {
-    display: inline-block;
-    background-color: black;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  .button-to-cart:hover {
-    background-color: #a39b9b;
-    color: black;
-    border: 2px solid black;
-  }
-  
-  button {
-    margin-top: 10px;
-    background-color: black;
-    color: white;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #a39b9b; 
-  }
-  
-  .item-cart{
-    margin-top: 2rem;
-  }
+}
+
+h3 {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: a;
+  font-weight: 700;
+  font-style: italic;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0;
+  list-style: none;
+  justify-content: flex-start;
+}
+
+
+.item-cart {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: a;
+  font-weight: 700;
+  font-style: italic;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  justify-content: space-between;
+  height: 300px;
+}
+
+.item-cart img {
+  width: 100%;
+  max-width: 100px;
+  height: auto;
+}
+
+.item-cart p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+
+.item-cart .button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.item-cart button {
+  background-color: #341e34;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.item-cart button:hover {
+  background-color: #a39b9b;
+}
+
+
+h3 {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.button-to-cart {
+  display: inline-block;
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.button-to-cart:hover {
+  background-color: #a39b9b;
+  color: black;
+  border: 2px solid black;
+}
+
+button {
+  margin-top: 10px;
+  background-color: black;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #a39b9b;
+}
+
+.item-cart {
+  margin-top: 2rem;
+}
