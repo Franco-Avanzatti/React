@@ -1,4 +1,4 @@
-.navbar{
+.navbar {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -6,31 +6,43 @@
     padding: 8px;
     width: 100%;
 }
-.banner{
+
+.banner {
     border-radius: 10px;
 }
 
-.navbar .menu-toggle{
+.navbar .menu-toggle {
     display: none;
     padding: 8px;
 }
 
-.navbar .categories{
+.navbar .categories {
     display: flex;
-    gap:  100px;
+    gap: 100px;
     font-weight: bold;
 }
-.categories .category{
+
+.categories .category {
     text-decoration: none;
 }
-.category-active{
+.categories .category:hover{
+    color: #ce93d8;
+}
+
+.category-active {
     color: #ce93d8;
     text-decoration: underline;
 }
-.cartwidget{
-    color: bisque; 
+
+.cartwidget {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: bisque;
 }
-.banner{
+
+.banner {
     display: flex;
     width: 80px;
     height: 60px;
@@ -43,7 +55,7 @@
         align-items: center;
         justify-content: space-between;
     }
-    
+
 
     .navbar .menu-toggle {
         display: block;
@@ -51,26 +63,34 @@
         font-size: 2rem;
         background-color: #4a148c;
     }
-    
+
     .navbar .categories {
         display: none;
-        padding:16px;
-        align-items: start;
-        padding-top: 64px;
-        flex-direction: column;
-        position: absolute;
-        gap: 16px;
-        top: 65px;
-        height: 100vh;
+        position: fixed;
+        top: 78px;
         left: 0;
-        background: #4a148c;
         width: 100%;
+        height: calc(100vh - 78px);
+        background: #4a148c;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
         text-align: center;
         z-index: 10;
+        overflow: hidden;
     }
-    
+
     .navbar .categories.open {
         display: flex;
+        flex-direction: column;
+        gap: 5rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    body.no-scroll {
+        overflow: hidden;
+        height: 100vh;
     }
 }
-

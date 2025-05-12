@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CartWidget from "./CartWidget";
 import bannerImage from "../../assets/panama.webp";
 import { NavLink, Link } from "react-router-dom";
@@ -6,6 +6,15 @@ import "./navbar.css";
 
 const NavBar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+
+    useEffect(() =>{
+        if (menuOpen) {
+            document.body.classList.add("no-scroll");
+        }else {
+            document.body.classList.remove("no-scroll");
+        }
+    }, [menuOpen]);
+
 
     return (
         <nav className="navbar">
