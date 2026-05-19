@@ -17,34 +17,63 @@ const Cart = () => {
     )
   }
 
-  return (
-    <>
-      <div className="container-cart">
-        <div>
-          <ul>
-            {
-              cart.map((productCart) => (
-                <div className="item-cart" key={productCart.id}>
-                  <img src={productCart.image} width={100} />
-                  <p>{productCart.name}</p>
-                  <p>cantidad: {productCart.quantity}</p>
-                  <p>precio c/u: {productCart.price.toLocaleString("es-ES")}</p>
-                  <button onClick={() => deleteProduct(productCart.id)}>Eliminar</button>
-                </div>
-              ))
-            }
-          </ul>
+ return (
+  <div className="min-h-screen flex justify-center px-4 py-8">
+    
+    <div className="w-full max-w-2xl flex flex-col items-center gap-6">
 
-          <h3>Precio total: {totalPrice().toLocaleString("es-ES")}</h3>
-          <Link className="button-to-cart" to="/checkout">Continuar con mi compra</Link>
-        </div>
-        <button className="button-to-cart" onClick={deleteCart}>Vaciar carrito</button>
+      {/* CART LIST */}
+      <ul className="w-full flex flex-col gap-4">
+        {cart.map((productCart) => (
+          <li
+            key={productCart.id}
+            className="flex flex-col sm:flex-row items-center gap-4 border rounded-lg p-4 bg-white/5"
+          >
+            <img
+              src={productCart.image}
+              className="w-20 h-20 object-contain"
+            />
 
-      </div>
+            <div className="flex-1 text-center sm:text-left">
+              <p className="font-semibold">{productCart.name}</p>
+              <p>cantidad: {productCart.quantity}</p>
+              <p>
+                precio c/u: {productCart.price.toLocaleString("es-ES")}
+              </p>
+            </div>
 
-    </>
+            <button
+              onClick={() => deleteProduct(productCart.id)}
+              className="bg-red-600 text-white px-3 py-1 rounded"
+            >
+              Eliminar
+            </button>
+          </li>
+        ))}
+      </ul>
 
+      {/* TOTAL */}
+      <h3 className="text-lg font-bold">
+        Precio total: {totalPrice().toLocaleString("es-ES")}
+      </h3>
 
-  )
+      {/* BOTONES */}
+      <Link
+        to="/checkout"
+        className="w-full text-center bg-black text-white py-3 rounded"
+      >
+        Continuar con mi compra
+      </Link>
+
+      <button
+        onClick={deleteCart}
+        className="w-full bg-gray-800 text-white py-3 rounded"
+      >
+        Vaciar carrito
+      </button>
+
+    </div>
+  </div>
+);
 }
 export default Cart

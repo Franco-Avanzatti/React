@@ -45,14 +45,37 @@ const ItemListContainer = ({ greeting, LoadingComponent }) => {
   }, [idCategory]);
   
 
-  return (
-    <div className="itemListContainer" >
-      <h1 className="hendrix" >{greeting}</h1>
-      
-         {loading ? <LoadingComponent /> : <ItemList products={products} />}
-      
+ return (
+  <div className="itemListContainer">
+
+    <div className="text-center mb-5">
+
+      <h2 className="
+        text-white
+        text-4xl
+        font-black
+        tracking-wide
+      ">
+        Top Ventas
+      </h2>
+
+      <p className="
+        text-zinc-400
+        mt-3
+      ">
+        Los instrumentos más elegidos por nuestros músicos.
+      </p>
+
     </div>
-  );
+
+    {
+      loading
+        ? <LoadingComponent />
+        : <ItemList products={products} />
+    }
+
+  </div>
+);
 };
 
 export default ItemListContainer;

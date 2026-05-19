@@ -1,6 +1,60 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes heroFade {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-heroFade {
+    animation: heroFade 1.2s ease;
+}
+
+/* ======================================== */
+
+@keyframes heroText {
+
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.animate-heroText {
+    animation: heroText 1s ease;
+}
+
+/* ======================================== */
+
+@keyframes floatSmooth {
+
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-18px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.animate-floatSmooth {
+    animation: floatSmooth 6s ease-in-out infinite;
 }
