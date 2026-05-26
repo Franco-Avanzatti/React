@@ -1,84 +1,48 @@
 import { Link, NavLink } from "react-router-dom";
-import { ShoppingCart, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
+import CartWidget from "./CartWidget";
+
 import panamaa from "../../assets/panamaa.png";
+
+import "./navbar.css";
 
 const NavBar = () => {
 
     const [menuOpen, setMenuOpen] = useState(false);
 
     const navLinkStyles = ({ isActive }) =>
-        `relative text-sm font-semibold transition-all duration-300
-        hover:text-violet-300 hover:-translate-y-[2px]
-        hover:drop-shadow-[0_0_8px_rgba(196,181,253,0.8)]
-
-        after:content-['']
-        after:absolute
-        after:left-0
-        after:-bottom-1
-        after:h-[2px]
-        after:w-0
-        after:bg-violet-400
-        after:transition-all
-        after:duration-300
-
-        hover:after:w-full
-
-        ${isActive
-            ? "text-violet-300 after:w-full"
-            : "text-white"
-        }`;
+        `nav-link ${isActive ? "active-link" : ""}`;
 
     return (
 
-        <header className="sticky top-0 z-50 backdrop-blur-md bg-[#24063b]/95 border-b border-white/10 shadow-lg">
+        <header className="navbar-container">
 
-            <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <div className="navbar-content">
 
-                {/* =====================================
-                    LEFT - LOGO
-                ===================================== */}
+                {/* LOGO */}
 
-                <div className="flex-1">
+                <div className="navbar-left">
 
                     <Link
                         to="/"
-                        className="flex items-center gap-4 group"
+                        className="logo-container"
                     >
 
                         <img
                             src={panamaa}
                             alt="Panama Music"
-                            className="
-                                w-20 h-20
-                                rounded-2xl
-                                object-cover
-                                shadow-lg
-                                transition-all
-                                duration-300
-                                group-hover:scale-105
-                                group-hover:rotate-1
-                            "
+                            className="logo-image"
                         />
 
-                        <div className="hidden md:flex flex-col">
+                        <div className="logo-text">
 
-                            <span className="
-                                text-white
-                                font-bold
-                                text-2xl
-                                tracking-wide
-                            ">
+                            <span className="logo-title">
                                 Panama Music
                             </span>
 
-                            <span className="
-                                text-violet-300
-                                text-xs
-                                tracking-[4px]
-                                uppercase
-                            ">
+                            <span className="logo-subtitle">
                                 Music Store
                             </span>
 
@@ -88,11 +52,9 @@ const NavBar = () => {
 
                 </div>
 
-                {/* =====================================
-                    CENTER - MENU
-                ===================================== */}
+                {/* MENU */}
 
-                <nav className="hidden lg:flex flex-1 justify-center gap-12">
+                <nav className="navbar-menu">
 
                     <NavLink
                         to="/category/guitarras-electricas"
@@ -124,53 +86,19 @@ const NavBar = () => {
 
                 </nav>
 
-                {/* =====================================
-                    RIGHT
-                ===================================== */}
+                {/* RIGHT */}
 
-                <div className="flex-1 flex items-center justify-end gap-4">
+                <div className="navbar-right">
 
-                    {/* CART */}
+                    <div className="cart-container">
+                        <CartWidget />
+                    </div>
 
-                    <Link
-                        to="/cart"
-                        className="
-                            relative
-                            w-12 h-12
-                            rounded-2xl
-                            flex items-center justify-center
-                            text-white
-                            bg-white/5
-                            border border-white/10
-
-                            transition-all
-                            duration-300
-
-                            hover:bg-violet-500/20
-                            hover:border-violet-400/30
-                            hover:scale-105
-                            hover:shadow-[0_0_20px_rgba(139,92,246,0.4)]
-                        "
-                    >
-
-                        <ShoppingCart size={22} />
-
-                    </Link>
-
-                    {/* MOBILE BUTTON */}
+                    {/* MOBILE */}
 
                     <button
                         onClick={() => setMenuOpen(!menuOpen)}
-                        className="
-                            lg:hidden
-                            text-white
-
-                            transition
-                            duration-300
-
-                            hover:text-violet-300
-                            hover:scale-110
-                        "
+                        className="menu-button"
                     >
 
                         {
@@ -185,56 +113,15 @@ const NavBar = () => {
 
             </div>
 
-            {/* =====================================
-                MOBILE MENU
-            ===================================== */}
+            {/* MOBILE MENU */}
 
-            <div className={`
-                lg:hidden
-                overflow-hidden
-                transition-all
-                duration-500
-                ${menuOpen ? "max-h-96" : "max-h-0"}
-            `}>
+            <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
 
-                <nav className="
-                    flex flex-col
-                    bg-[#1a082b]
-                    px-6
-                    py-6
-                    gap-6
-                    border-t border-white/10
-                ">
+                <nav className="mobile-menu-content">
 
                     <NavLink
                         to="/category/guitarras-electricas"
-                        className={({ isActive }) =>
-                            `
-                            relative
-                            text-lg
-                            font-medium
-                            text-white
-
-                            transition-all
-                            duration-300
-
-                            hover:text-violet-300
-                            hover:translate-x-2
-                            hover:drop-shadow-[0_0_8px_rgba(196,181,253,0.8)]
-
-                            px-4
-                            py-3
-
-                            rounded-xl
-
-                            hover:bg-white/5
-
-                            ${isActive
-                                ? "text-violet-300 bg-white/5 border border-violet-400/20"
-                                : ""
-                            }
-                            `
-                        }
+                        className="mobile-link"
                         onClick={() => setMenuOpen(false)}
                     >
                         Guitarras
@@ -242,33 +129,7 @@ const NavBar = () => {
 
                     <NavLink
                         to="/category/bajo-electrico"
-                        className={({ isActive }) =>
-                            `
-                            relative
-                            text-lg
-                            font-medium
-                            text-white
-
-                            transition-all
-                            duration-300
-
-                            hover:text-violet-300
-                            hover:translate-x-2
-                            hover:drop-shadow-[0_0_8px_rgba(196,181,253,0.8)]
-
-                            px-4
-                            py-3
-
-                            rounded-xl
-
-                            hover:bg-white/5
-
-                            ${isActive
-                                ? "text-violet-300 bg-white/5 border border-violet-400/20"
-                                : ""
-                            }
-                            `
-                        }
+                        className="mobile-link"
                         onClick={() => setMenuOpen(false)}
                     >
                         Bajos
@@ -276,33 +137,7 @@ const NavBar = () => {
 
                     <NavLink
                         to="/category/bateria-percusion"
-                        className={({ isActive }) =>
-                            `
-                            relative
-                            text-lg
-                            font-medium
-                            text-white
-
-                            transition-all
-                            duration-300
-
-                            hover:text-violet-300
-                            hover:translate-x-2
-                            hover:drop-shadow-[0_0_8px_rgba(196,181,253,0.8)]
-
-                            px-4
-                            py-3
-
-                            rounded-xl
-
-                            hover:bg-white/5
-
-                            ${isActive
-                                ? "text-violet-300 bg-white/5 border border-violet-400/20"
-                                : ""
-                            }
-                            `
-                        }
+                        className="mobile-link"
                         onClick={() => setMenuOpen(false)}
                     >
                         Baterías
@@ -310,33 +145,7 @@ const NavBar = () => {
 
                     <NavLink
                         to="/category/audio-sonido"
-                        className={({ isActive }) =>
-                            `
-                            relative
-                            text-lg
-                            font-medium
-                            text-white
-
-                            transition-all
-                            duration-300
-
-                            hover:text-violet-300
-                            hover:translate-x-2
-                            hover:drop-shadow-[0_0_8px_rgba(196,181,253,0.8)]
-
-                            px-4
-                            py-3
-
-                            rounded-xl
-
-                            hover:bg-white/5
-
-                            ${isActive
-                                ? "text-violet-300 bg-white/5 border border-violet-400/20"
-                                : ""
-                            }
-                            `
-                        }
+                        className="mobile-link"
                         onClick={() => setMenuOpen(false)}
                     >
                         Audio Pro

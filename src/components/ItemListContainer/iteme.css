@@ -14,9 +14,10 @@
 }
 
 .itemListContainer .itemList {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 por fila en mobile */
+    gap: 1rem;
+    width: 100%;
 }
 
 .itemListContainer .item {
@@ -25,21 +26,15 @@
     align-items: center;
     position: relative;
     overflow: hidden;
-    width: 300px;
-    margin: 2rem;
+    width: 100%; 
     padding: 1rem;
+    margin: 0;
     border: 2px solid gray;
     border-radius: 10px;
     gap: 0.5rem;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
-}
-
-
-.hendrix {
-    font-family: "PT Sans Caption", serif;
-    font-weight: 400;
-    font-style: normal;
+    box-sizing: border-box; 
 }
 
 .text-item {
@@ -102,8 +97,22 @@
     font-size: 14px;
 }
 
+/* Tablet */
+@media (min-width: 640px) {
+    .itemListContainer .itemList {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .itemListContainer .itemList {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
 @media (max-width: 500px) {
-    .itemListContainer .item{
-        width: 200px;
+    .itemListContainer {
+        padding: 20px 10px;
     }
 }

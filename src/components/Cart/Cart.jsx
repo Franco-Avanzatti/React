@@ -7,14 +7,25 @@ const Cart = () => {
   const { cart, deleteProduct, deleteCart, totalPrice } = useContext(CartContext)
 
 
-  if (cart.lenght === 0) {
-    return (
-      <div>
-        <h2>El carrito esta vacío</h2>
-        <Link to="/">Volver al inicio</Link>
+  if (cart.length === 0) {
+     return (
 
-      </div>
-    )
+    <div className="min-h-screen flex flex-col items-center justify-center gap-6">
+
+      <h2 className="text-3xl font-bold text-white">
+        El carrito esta vacío
+      </h2>
+
+      <Link
+        to="/"
+        className="bg-purple-700 hover:bg-purple-800 text-white px-6 py-3 rounded-lg"
+      >
+        Volver al inicio
+      </Link>
+
+    </div>
+
+  )
   }
 
  return (
@@ -36,7 +47,7 @@ const Cart = () => {
 
             <div className="flex-1 text-center sm:text-left">
               <p className="font-semibold">{productCart.name}</p>
-              <p>cantidad: {productCart.quantity}</p>
+              <p>cantidad: {productCart.quantity || 1}</p>
               <p>
                 precio c/u: {productCart.price.toLocaleString("es-ES")}
               </p>
