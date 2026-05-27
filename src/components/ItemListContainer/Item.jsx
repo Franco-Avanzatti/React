@@ -9,7 +9,7 @@ const Item = ({ product }) => {
         <p className="text-item">${product.price.toLocaleString("es-ES")}</p>
 
         <Link to={ "/detail/"+product.id }>
-         <p className="curtain">Mas información</p>
+         <p className="curtain">Ver <p></p>roducto</p>
         </Link>
     </div>
   )

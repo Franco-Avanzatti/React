@@ -1,118 +1,310 @@
-@import url('https://fonts.googleapis.com/css2?family=New+Rocker&family=PT+Sans+Caption:wght@400;700&family=Rock+Salt&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=New+Rocker&family=PT+Sans+Caption:wght@400;700&family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* =========================
+   CONTAINER
+========================= */
 
 .itemListContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 50px;
+
+    padding: 90px 1rem 2rem;
+
     gap: 2rem;
-    flex: 1;
-    min-height: 92vh;
-    box-sizing: border-box;
+
+    min-height: 100vh;
+
+    background:
+    linear-gradient(
+        to bottom,
+        #14051f,
+        #1a0f24,
+        #111111
+    );
 }
+
+/* =========================
+   GRID
+========================= */
 
 .itemListContainer .itemList {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 por fila en mobile */
+
+    grid-template-columns: repeat(2, 1fr);
+
     gap: 1rem;
+
     width: 100%;
+
+    max-width: 1400px;
 }
+
+/* =========================
+   CARD
+========================= */
 
 .itemListContainer .item {
+    position: relative;
+
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+
     align-items: center;
-    position: relative;
-    overflow: hidden;
-    width: 100%; 
+
     padding: 1rem;
-    margin: 0;
-    border: 2px solid gray;
-    border-radius: 10px;
-    gap: 0.5rem;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    background:
+    rgba(255,255,255,0.03);
+
+    border:
+    1px solid rgba(255,255,255,0.12);
+
+    backdrop-filter: blur(8px);
+
+    transition: all .3s ease;
+
     cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-    box-sizing: border-box; 
-}
 
-.text-item {
-    font-family: "Montserrat", serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: italic;
+    min-height: 320px;
 }
-
 
 .item:hover {
-    transform: scale(1.05);
+    transform: translateY(-6px);
+
+    border-color: #a855f7;
+
+    box-shadow:
+    0 10px 30px rgba(168,85,247,.25);
 }
+
+/* =========================
+   IMAGE
+========================= */
 
 .img-item {
     width: 100%;
-    height: auto;
+
+    height: 170px;
+
+    object-fit: contain;
+
+    transition: transform .3s ease;
+
+    filter:
+    drop-shadow(0 8px 12px rgba(0,0,0,.5));
 }
+
+.item:hover .img-item {
+    transform: scale(1.05);
+}
+
+/* =========================
+   TEXT
+========================= */
 
 .text-item {
-    padding: 10px;
+    font-family: "Montserrat", sans-serif;
+
     text-align: center;
-    font-size: 16px;
-    font-weight: bold;
+
+    margin: 0;
+
+    color: white;
 }
 
-.txt-detail {
-    display: none;
+/* PRODUCT NAME */
+
+.text-item:nth-child(2) {
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    margin-top: 1rem;
+
+    min-height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    line-height: 1.3;
+}
+
+/* PRICE */
+
+.text-item:nth-child(3) {
+
+    font-size: 1.2rem;
+
+    font-weight: bold;
+
+    color: #d8b4fe;
+
+    margin-top: .5rem;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.curtain {
+
+    margin-top: 1rem;
+
+    width: 100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        #7e22ce,
+        #9333ea
+    );
+
+    color: white;
+
+    padding: .8rem 1rem;
+
+    border-radius: 12px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: .9rem;
+
+    font-weight: 600;
+
+    text-align: center;
+
+    opacity: 0;
+
+    transform: translateY(10px);
+
+    transition: all .3s ease;
+
+    box-shadow:
+    0 6px 18px rgba(126,34,206,.35);
 }
 
 .item:hover .curtain {
+
+    opacity: 1;
+
     transform: translateY(0);
 }
 
-.curtain {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-    transition: transform 0.3s ease;
-    transform: translateY(100%);
-    text-align: center;
+/* =========================
+   LINKS
+========================= */
+
+a {
+    text-decoration: none;
 }
 
-.curtain p {
-    margin: 0;
-}
+/* =========================
+   TABLET
+========================= */
 
-.item:hover .txt-detail {
-    display: block;
-    color: white;
-    text-decoration: underline;
-    font-size: 14px;
-}
-
-/* Tablet */
 @media (min-width: 640px) {
+
     .itemListContainer .itemList {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* Desktop */
+/* =========================
+   DESKTOP
+========================= */
+
 @media (min-width: 1024px) {
+
     .itemListContainer .itemList {
         grid-template-columns: repeat(4, 1fr);
     }
 }
 
-@media (max-width: 500px) {
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
     .itemListContainer {
-        padding: 20px 10px;
+        padding: 90px .8rem 2rem;
+    }
+
+    .itemListContainer .item {
+
+        min-height: auto;
+
+        padding: 1rem;
+    }
+
+    .img-item {
+        height: 130px;
+    }
+
+    .text-item:nth-child(2) {
+
+        font-size: .95rem;
+
+        min-height: 42px;
+    }
+
+    .text-item:nth-child(3) {
+
+        font-size: 1rem;
+    }
+
+    .curtain {
+
+        opacity: 1;
+
+        transform: none;
+
+        font-size: .85rem;
+
+        padding: .8rem 1rem;
+    }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    .itemListContainer {
+
+        padding: 85px .7rem 1.5rem;
+    }
+
+    .itemListContainer .itemList {
+
+        gap: .8rem;
+    }
+
+    .itemListContainer .item {
+
+        border-radius: 16px;
+    }
+
+    .img-item {
+
+        height: 120px;
+    }
+
+    .curtain {
+
+        font-size: .8rem;
+
+        padding: .75rem;
     }
 }

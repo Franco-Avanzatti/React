@@ -1,81 +1,115 @@
 import { useState, useEffect } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
-import db from "../../db/db.js";
-import ItemList from "./ItemList.jsx";
 import { useParams } from "react-router-dom";
+
+import db from "../../db/db.js";
+
+import ItemList from "./ItemList.jsx";
+import Loading from "../Loading/Loading.jsx";
+import SectionTitle from "../SectionTitle/SectionTitle.jsx";
+
 import "./iteme.css";
 
+const ItemListContainer = () => {
 
-const ItemListContainer = ({ greeting, LoadingComponent }) => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const { idCategory } = useParams();
 
-  const collectionName = collection(db, "products")
+  const collectionName = collection(db, "products");
 
-  //Obtener los productos,sea por categoría o todos los productos//
-  
-  const getProducts = async(category = null) => {
+  const categoryInfo = {
+
+    "bajo-electrico": {
+      title: "Bajos Electricos",
+      subtitle: "Potencia y profundidad para marcar el ritmo."
+    },
+
+    "guitarras-electricas": {
+      title: "Guitarras Eléctricas",
+      subtitle: "Encontrá el sonido perfecto para tu estilo."
+    },
+
+    "bateria-percusion": {
+      title: "Batería y Percusión",
+      subtitle: "Ritmo y energía para cada presentación."
+    },
+
+    "audio-sonido": {
+      title: "Audio y SonÍdo",
+      subtitle: "Versatilidad y creatividad musical."
+    }
+  };
+
+  const currentCategory = categoryInfo[idCategory];
+
+  const getProducts = async (category = null) => {
+
     try {
+
       setLoading(true);
+
       let dataDb;
-  
+
       if (category) {
-        const q = query(collectionName, where("category", "==", category));
+
+        const q = query(
+          collectionName,
+          where("category", "==", category)
+        );
+
         dataDb = await getDocs(q);
+
       } else {
+
         dataDb = await getDocs(collectionName);
       }
-  
-      const data = dataDb.docs.map((productDb) => {
-        return { id: productDb.id, ...productDb.data() };
-      });
-  
+
+      const data = dataDb.docs.map((productDb) => ({
+        id: productDb.id,
+        ...productDb.data()
+      }));
+
       setProducts(data);
-      setLoading(false);
+
     } catch (error) {
-      console.log(error);
+
+      console.error(error);
+
+    } finally {
+
       setLoading(false);
     }
-  }
-  
+  };
+
   useEffect(() => {
+
     getProducts(idCategory);
+
   }, [idCategory]);
-  
 
- return (
-  <div className="itemListContainer">
+  return (
 
-    <div className="text-center mb-5">
+    <div className="itemListContainer">
 
-      <h2 className="
-        text-white
-        text-4xl
-        font-black
-        tracking-wide
-      ">
-        Top Ventas
-      </h2>
+      {idCategory && currentCategory && (
 
-      <p className="
-        text-zinc-400
-        mt-3
-      ">
-        Los instrumentos más elegidos por nuestros músicos.
-      </p>
+        <SectionTitle
+          title={currentCategory.title}
+          subtitle={currentCategory.subtitle}
+        />
+
+      )}
+
+      {
+        loading
+          ? <Loading />
+          : <ItemList products={products} />
+      }
 
     </div>
-
-    {
-      loading
-        ? <LoadingComponent />
-        : <ItemList products={products} />
-    }
-
-  </div>
-);
+  );
 };
 
 export default ItemListContainer;

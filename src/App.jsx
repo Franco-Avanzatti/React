@@ -4,14 +4,11 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import Footer from "./components/Footer/Footer";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
-import Loading from "./components/Loading/Loading";
-
 import Home from "./pages/Home";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
-
 import { ToastContainer } from "react-toastify";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 import './App.css';
 
@@ -24,7 +21,7 @@ function App() {
       <BrowserRouter>
 
         <CartProvider>
-
+          <ScrollToTop />
           <NavBar />
 
           <ToastContainer
@@ -45,7 +42,6 @@ function App() {
               path="/category/:idCategory"
               element={
                 <ItemListContainer
-                  LoadingComponent={Loading}
                 />
               }
             />
@@ -55,7 +51,6 @@ function App() {
               path="/detail/:idProduct"
               element={
                 <ItemDetailContainer
-                  LoadingComponent={Loading}
                 />
               }
             />
